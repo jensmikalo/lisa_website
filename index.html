@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisa Gray - Author & Restless Gray Girl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  /* Global Styles */
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Radley', serif;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+  }
+  
+  /* Primary Reddish-Brown Palette 
+     Main: #6b2d24 (Deep Mahogany)
+     Hover: #52211a (Darker Brown)
+     Accent/Links: #8c3c31 (Rust/Red)
+  */
+  
+  /* Navigation Bar */
+  nav {
+    background-color: #6b2d24;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 24px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+
+  nav li a:hover {
+    background-color: #52211a;
+  }
+
+  .hamburger-btn {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    font-family: 'Radley', serif;
+  }
+
+  /* Parallax Hero Section (Home) */
+  .parallax {
+    background-image: url('images/winterscene.jpg');
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-text {
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 40px 60px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-text h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-text p {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-top: 10px;
+    color: #e0e0e0;
+  }
+
+  /* Content Sections (Home) */
+  .content-section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .content-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #6b2d24;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .book-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .book-cover {
+    flex: 0 0 250px;
+    height: 380px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    border: 1px dashed #ccc;
+    box-shadow: 4px 6px 15px rgba(0,0,0,0.08);
+  }
+
+  .book-details h3 {
+    margin-top: 0;
+    color: #6b2d24;
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #6b2d24;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover { background-color: #52211a; }
+
+  .bio-container {
+    background-color: #fafafa;
+    padding: 40px;
+    border-left: 6px solid #6b2d24;
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .events-list { list-style: none; padding: 0; font-size: 1.1rem; }
+  .event-item {
+    padding: 20px 15px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  .event-date { font-weight: bold; color: #6b2d24; min-width: 120px; }
+
+  /* Blog Sections Styles */
+  .blog-background {
+    background-image: url('images/haybales.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 60px 20px;
+  }
+
+  .blog-overlay {
+    background-color: rgba(255, 255, 255, 0.95);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 6px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+
+  .blog-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #6b2d24;
+    padding-bottom: 30px;
+  }
+  
+  .blog-header h2 {
+    font-size: 2.8rem;
+    color: #6b2d24;
+    margin: 0 0 15px 0;
+  }
+
+  .blog-header .quote {
+    font-style: italic;
+    color: #555;
+    font-size: 1.3rem;
+    line-height: 1.8;
+  }
+
+  /* Blog Layout with Sidebar */
+  .blog-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .blog-sidebar {
+    flex: 0 0 200px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    position: sticky;
+    top: 80px;
+  }
+
+  .blog-sidebar h3 {
+    margin-top: 0;
+    color: #6b2d24;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .year-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .year-list li {
+    margin-bottom: 10px;
+  }
+
+  .year-list button {
+    background: none;
+    border: none;
+    color: #8c3c31;
+    font-family: 'Radley', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    transition: color 0.3s ease;
+  }
+
+  .year-list button:hover, .year-list button.active {
+    color: #52211a;
+    font-weight: bold;
+  }
+
+  .blog-main {
+    flex: 1;
+  }
+
+  .blog-excerpt {
+    margin-bottom: 45px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 20px;
+  }
+
+  .blog-excerpt-content {
+    flex: 1;
+  }
+  
+  .blog-excerpt h3 {
+    font-size: 1.8rem;
+    color: #6b2d24;
+    margin: 0 0 5px 0;
+  }
+
+  .post-meta {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+
+  .post-thumbnail {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .post-full-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    color: #8c3c31;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .read-more-btn:hover { color: #52211a; }
+
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .post-nav button {
+    background-color: #6b2d24;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-family: 'Radley', serif;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-nav button:hover { background-color: #52211a; }
+
+  .full-post-body p { margin-bottom: 20px; font-size: 1.2rem; }
+
+  /* Footer */
+  footer {
+    background-color: #6b2d24;
+    color: #e8d5d3;
+    text-align: center;
+    padding: 30px;
+    font-size: 1.1rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    nav { justify-content: flex-end; }
+    .hamburger-btn { display: block; }
+    nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #6b2d24;
+    }
+    nav ul.active { display: flex; }
+    nav li a { text-align: left; padding: 15px 20px; border-top: 1px solid #843b31; }
+    
+    .book-container { flex-direction: column; align-items: center; text-align: center; }
+    .event-item { flex-direction: column; gap: 5px; text-align: center; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .blog-overlay { padding: 30px 20px; margin: 20px; }
+    .blog-layout { flex-direction: column; }
+    .blog-sidebar { width: auto; position: static; margin-bottom: 20px; }
+    .blog-excerpt { flex-direction: column; }
+    .post-thumbnail { width: 100%; height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="hamburger-btn" onclick="toggleMenu()">☰ Menu</button>
+  <ul id="nav-menu">
+    <li><a href="#" onclick="goHomeAndScroll('home-top'); return false;">Home</a></li>
+    <li><a href="#" onclick="goHomeAndScroll('books'); return false;">Books</a></li>
+    <li><a href="#" onclick="goHomeAndScroll('about'); return false;">About</a></li>
+    <li><a href="#" onclick="goHomeAndScroll('events'); return false;">Events</a></li>
+    <li><a href="#" onclick="showBlogList(); return false;">Blog</a></li>
+  </ul>
+</nav>
+
+<div id="home-view">
+  <header id="home-top" class="parallax">
+    <div class="hero-text">
+      <h1>Lisa Gray</h1>
+      <p>Author of Story Avenue: Loving Beyond Labels on an Iowa Gravel Road</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="books" class="content-section">
+      <h2>Featured Work</h2>
+      <div class="book-container">
+        <div class="book-cover"><em>[Cover Image Placeholder]</em></div>
+        <div class="book-details">
+          <h3>Story Avenue: Loving Beyond Labels on an Iowa Gravel Road</h3>
+          <p><em>[Insert book blurb here. This space is reserved for a compelling description of the nonfiction memoir, exploring themes of rural life, farming, and personal history.]</em></p>
+          <a href="#" class="btn">Pre-Order / Buy Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="content-section">
+      <h2>About the Author</h2>
+      <div class="bio-container">
+        <p><em>[Insert full Author Bio here. This section is structured to feature Lisa's background as a nonfiction author and provide a deeper dive into her personal journey and writing process.]</em></p>
+      </div>
+    </section>
+
+    <section id="events" class="content-section">
+      <h2>Upcoming Events</h2>
+      <ul class="events-list">
+        <li class="event-item">
+          <span class="event-date">[Month 00, 2026]</span>
+          <span class="event-details"><strong>[Event Title]</strong> — <em>[Location/Venue Placeholder]</em></span>
+        </li>
+      </ul>
+      <p style="text-align: center; margin-top: 30px; color: #7f8c8d;"><em>More events and reading dates to be announced soon.</em></p>
+    </section>
+  </main>
+</div>
+
+<div id="blog-list-view" class="blog-background" style="display: none;">
+  <div class="blog-overlay">
+    <div class="blog-header">
+      <h2>Restless Gray Girl</h2>
+      <p class="quote">"And the point is, to live everything. Live the questions now." <br>— Rainer Maria Rilke</p>
+    </div>
+    
+    <div class="blog-layout">
+      <aside class="blog-sidebar">
+        <h3>Filter by Year</h3>
+        <ul class="year-list" id="sidebar-years">
+          </ul>
+      </aside>
+
+      <div class="blog-main" id="blog-entries-container">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="blog-post-view" class="blog-background" style="display: none;">
+  <div class="blog-overlay">
+    <div class="post-nav">
+      <button onclick="showBlogList()">← Back to Blog List</button>
+      <button onclick="goHomeAndScroll('home-top')">⌂ Back to Home</button>
+    </div>
+    <div id="full-post-container" class="full-post-body">
+      </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Lisa Gray. All rights reserved.</p>
+</footer>
+
+<script>
+  // Mobile Menu Toggle
+  function toggleMenu() {
+    document.getElementById('nav-menu').classList.toggle('active');
+  }
+
+  function closeMobileMenu() {
+    document.getElementById('nav-menu').classList.remove('active');
+  }
+
+  // SPA Navigation Functions
+  function goHomeAndScroll(sectionId) {
+    document.getElementById('home-view').style.display = 'block';
+    document.getElementById('blog-list-view').style.display = 'none';
+    document.getElementById('blog-post-view').style.display = 'none';
+    closeMobileMenu();
+
+    setTimeout(() => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50); 
+  }
+
+  function showBlogList() {
+    document.getElementById('home-view').style.display = 'none';
+    document.getElementById('blog-list-view').style.display = 'block';
+    document.getElementById('blog-post-view').style.display = 'none';
+    window.scrollTo(0, 0);
+    closeMobileMenu();
+  }
+
+  function showPost(postId) {
+    const post = blogPosts.find(p => p.id === postId);
+    if(!post) return;
+    
+    let imageHTML = post.image ? `<img src="${post.image}" class="post-full-image" alt="${post.title}">` : '';
+
+    const container = document.getElementById('full-post-container');
+    container.innerHTML = `
+      <h2 style="font-size: 2.2rem; color: #6b2d24; margin-bottom: 5px; font-family: 'Cinzel', serif;">${post.title}</h2>
+      <div class="post-meta" style="margin-bottom: 20px;">${post.date}</div>
+      ${imageHTML}
+      ${post.content}
+    `;
+    
+    document.getElementById('home-view').style.display = 'none';
+    document.getElementById('blog-list-view').style.display = 'none';
+    document.getElementById('blog-post-view').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // Blog Post Data Base
+  const blogPosts = [
+    // --- 2024 POSTS ---
+    {
+      id: "power-lines",
+      year: "2024",
+      title: "Power Lines",
+      date: "May 13, 2024",
+      image: "images/power-lines.jpg", 
+      excerpt: "Today, my morning walk found me thinking of power lines. I see them every day on my drive to work. I grew up knowing they were...",
+      content: `
+        <p>Today, my morning walk found me thinking of power lines. I see them every day on my drive to work. I grew up knowing they were...</p>
+        <p><em>[Paste remaining paragraphs here]</em></p>`
+    },
+    {
+      id: "marching-forward",
+      year: "2024",
+      title: "Marching Forward: 11 Updates",
+      date: "March 17, 2024",
+      image: "images/marching-forward.jpg", 
+      excerpt: "[Paste introductory sentence here...]",
+      content: `
+        <p><em>[Paste full post text here]</em></p>`
+    },
+
+    // --- 2023 POSTS ---
+    {
+      id: "reflections",
+      year: "2023",
+      title: "Reflections and moving forward.",
+      date: "December 22, 2023",
+      image: "images/reflections.jpg", 
+      excerpt: "[Paste introductory sentence here...]",
+      content: `
+        <p><em>[Paste full post text here]</em></p>`
+    },
+    {
+      id: "destination-arrived",
+      year: "2023",
+      title: "Destination, arrived.",
+      date: "July 13, 2023",
+      image: "images/destination-arrived.jpg", 
+      excerpt: "[Paste introductory sentence here...]",
+      content: `
+        <p><em>[Paste full post text here]</em></p>`
+    },
+
+    // --- 2022 POSTS ---
+    {
+      id: "prompt-poem",
+      year: "2022",
+      title: "From a prompt, a poem.",
+      date: "July 31, 2022",
+      image: "images/prompt-poem.jpg", 
+      excerpt: "[Paste introductory sentence here...]",
+      content: `
+        <p><em>[Paste full post text here]</em></p>`
+    },
+    {
+      id: "for-kelley",
+      year: "2022",
+      title: "For Kelley",
+      date: "June 20, 2022",
+      image: "images/for-kelley.jpg", 
+      excerpt: "[Paste introductory sentence here...]",
+      content: `
+        <p><em>[Paste full post text here]</em></p>`
+    },
+    {
+      id: "may-rest",
+      year: "2022",
+      title: "MAY: Rest in peace.",
+      date: "May 28, 2022",
+      image: "images/may-rest.jpg", 
+      excerpt: "[Paste introductory sentence here...]",
+      content: `
+        <p><em>[Paste full post text here]</em></p>`
+    },
+
+    // --- PREVIOUSLY POPULATED OLDER POSTS ---
+    {
+      id: "piggies",
+      year: "2013",
+      title: "Little Piggies and Parenting",
+      date: "December 25, 2013",
+      image: "images/piggies.jpg",
+      excerpt: "Sadly, sweet little piggies grow to become enormous and stubborn and smelly and cannot be re-directed were you to, say, hit them over the snout with a 2 x 4...",
+      content: `
+        <p>Sadly, sweet little piggies grow to become enormous and stubborn and smelly and cannot be re-directed were you to, say, hit them over the snout with a 2 x 4 as my dad once discovered.</p>
+        <p>In the past few years, my friends and I have talked a lot about how our childhood lives differ so much from that of our kids. We worry a bit about what they view as 'work'.</p>
+        <p>If my kids never hold a peeing pig it's fine by me, but I do want them to do some shitty (pun intended) work. I want them to do work that will make them gag (or at least feel uncomfortable) so they learn how to push through unpleasant tasks.</p>`
+    },
+    {
+      id: "holy-mother",
+      year: "2013",
+      title: "Holy Mother of Writing",
+      date: "October 23, 2013",
+      image: "images/holy-mother.jpg",
+      excerpt: "Writing done well, or even in my case, mediocre, is hard. It's hard because we care about the story, we care about the reader, and we care about the craft...",
+      content: `
+        <p>Writing done well, or even in my case, mediocre, is hard. It's hard because we care about the story, we care about the reader, and we care about the craft. We go into it often not knowing where it will lead us...</p>
+        <p>No matter what else happens, that seems reason enough to me to continue to write. And to call yourself a writer with purpose. You ARE a writer with purpose. Screw the dirty laundry and write.</p>`
+    },
+    {
+      id: "heroes",
+      year: "2011",
+      title: "Ain't it a trip where heroes come from?",
+      date: "July 8, 2011",
+      image: "images/heroes.jpg",
+      excerpt: "I was recently reminded of one my favorite books that I used to teach in a class for students whose main goal in life was to graduate from high school...",
+      content: `
+        <p>I was recently reminded of one my favorite books that I used to teach in a class for students whose main goal in life was to graduate from high school. Staying Fat for Sarah Byrnes is a young adult novel written by Chris Crutcher.</p>
+        <p>We all have flown some sort of freak flag at one time or another. Humans by their very nature are quirky, weird, unpredictable. The heroes among us are those who strike out every day with the courage to let others see who they really are...</p>
+        <p>Life is difficult and therefore, we have no shortage of heroes. Keep your eyes up.</p>`
+    }
+  ];
+
+  let currentYearFilter = 'All';
+
+  function renderSidebar() {
+    const sidebar = document.getElementById('sidebar-years');
+    // Extract unique years from the post data
+    const years = ['All', ...new Set(blogPosts.map(post => post.year))].sort((a, b) => b - a); // sort descending
+    
+    sidebar.innerHTML = '';
+    years.forEach(year => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.innerText = year;
+      if (year === currentYearFilter) btn.classList.add('active');
+      
+      btn.onclick = () => {
+        currentYearFilter = year;
+        renderSidebar(); // Update active class
+        renderBlogFeed(); // Filter posts
+      };
+      
+      li.appendChild(btn);
+      sidebar.appendChild(li);
+    });
+  }
+
+  function renderBlogFeed() {
+    const container = document.getElementById('blog-entries-container');
+    container.innerHTML = '';
+    
+    // Filter logic
+    const filteredPosts = currentYearFilter === 'All' 
+      ? blogPosts 
+      : blogPosts.filter(post => post.year === currentYearFilter);
+
+    if(filteredPosts.length === 0) {
+      container.innerHTML = '<p>No posts found for this year.</p>';
+      return;
+    }
+
+    filteredPosts.forEach(post => {
+      const article = document.createElement('article');
+      article.className = 'blog-excerpt';
+      
+      const imgHTML = post.image ? `<img src="${post.image}" class="post-thumbnail" alt="${post.title}">` : '';
+
+      article.innerHTML = `
+        ${imgHTML}
+        <div class="blog-excerpt-content">
+          <h3>${post.title}</h3>
+          <div class="post-meta">${post.date}</div>
+          <p>${post.excerpt}</p>
+          <a href="#" class="read-more-btn" onclick="showPost('${post.id}'); return false;">Read the article in full &rarr;</a>
+        </div>
+      `;
+      container.appendChild(article);
+    });
+  }
+
+  // Initialize
+  renderSidebar();
+  renderBlogFeed();
+</script>
+
+</body>
+</html>
