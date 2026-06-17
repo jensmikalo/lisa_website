@@ -80,9 +80,9 @@
   /* Parallax Hero Section (Home) */
   .parallax {
     background-image: url('images/winterscene.jpg');
-    height: 100vh; 
+    height: 100vh;
     background-attachment: fixed;
-    background-position: center 35.7%;
+    background-position: center 16%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -90,8 +90,34 @@
     justify-content: center;
     text-align: center;
     color: white;
-    padding-top: 18vh;
+    padding-top: 6vh;
     box-sizing: border-box;
+  }
+
+  .hero-text {
+    background: none;
+    border: none;
+    padding: 0 20px 20px;
+    width: auto;
+    max-width: 900px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-text h1,
+  .hero-tagline {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .hero-tagline {
+    margin: 0 0 1rem;
+    font-family: 'Inspiration', cursive;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    color: #6b1006;
+    line-height: 1.1;
   }
 
   @keyframes fadeInUp {
@@ -103,14 +129,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .hero-text {
-    background: none; 
-    border: none;     
-    padding: 20px;
-    width: 100%;
-    max-width: 900px;
   }
 
   .hero-text h1 {
@@ -538,9 +556,17 @@
   <header id="home-top" class="parallax">
     <div class="hero-text" >
       <h1 style="color: #6b1006;">Lisa Gray</h1>
+      <p class="hero-tagline"></p>
       
-       <p class="teal-announcement-box">Coming <span style= "color:#430902"> AUGUST 4th, 2026</span> from Ten 16 Press, <em>STORY AVENUE: Growing Up on An Iowa Gravel Road</em> is <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
-g">now available for pre-order!</a></p>
+      
+       <div class="teal-announcement-box" style="text-align: center;">
+       
+        <p>
+         Coming <span style= "color:#430902"> AUGUST 4th, 2026</span> from Ten 16 Press, <em>STORY AVENUE: Growing Up on An Iowa Gravel Road</em> is <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
+g">now available for pre-order!</a>
+</p>
+
+</div>
         
      
      
