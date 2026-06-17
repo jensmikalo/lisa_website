@@ -6,7 +6,8 @@
 <title>Lisa Gray - Author & Restless Gray Girl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Radley:ital@0;1&family=Inspiration&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <style>
   /* Global Styles */
   body, html {
@@ -23,11 +24,7 @@
     font-weight: 700;
   }
   
-  /* Primary Reddish-Brown Palette 
-     Main: #6b2d24 (Deep Mahogany)
-     Hover: #52211a (Darker Brown)
-     Accent/Links: #8c3c31 (Rust/Red)
-  */
+  /* Primary Reddish-Brown Palette */
   
   /* Navigation Bar */
   nav {
@@ -69,12 +66,6 @@
     background-color: #52211a;
   }
 
-  .br {
-  display: block;
-  content: "";
-  margin-bottom: 50px; /* Adjust this value to increase or decrease the whitespace */
-}
-
   .hamburger-btn {
     display: none;
     color: white;
@@ -91,34 +82,100 @@
     background-image: url('images/winterscene.jpg');
     height: 100vh; 
     background-attachment: fixed;
-    background-position: center;
+    background-position: center 35.7%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     color: white;
+    padding-top: 18vh;
+    box-sizing: border-box;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-text {
-    background-color: rgba(0, 0, 0, 0.55);
-    padding: 40px 60px;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: none; 
+    border: none;     
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
   }
 
   .hero-text h1 {
     margin: 0;
-    font-size: 3.5rem;
-    letter-spacing: 2px;
+    font-size: 10rem; 
+    font-family: 'Inspiration', cursive;
+    font-weight: 550;
+    letter-spacing: 3px;
+    text-shadow: 15px 15px 35px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s; 
   }
 
-  .hero-text p {
-    font-size: 1.4rem;
-    font-style: italic;
+  /* Staggered Tagline Styling */
+  .tagline-container {
     margin-top: 10px;
-    color: #e0e0e0;
+    margin-bottom: 20px;
+    font-size: 4rem;
+    font-style: italic;
+    font-family: 'Inspiration', cursive;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  }
+
+  .tagline-segment {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .segment-1 { animation-delay: 1.3s; }
+  .segment-2 { animation-delay: 2.1s; }
+  .segment-3 { animation-delay: 2.9s; }
+
+  /* Teal Announcement Box */
+  .teal-announcement-box {
+    background-color: rgba(116, 202, 209, 0.85); /* Harmonious wintery teal */
+    color: rgb(237, 226, 226);
+    padding: 25px 40px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+    font-family: 'Radley', serif;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0s;
+    
+  }
+
+  .teal-announcement-box p {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
   }
 
   /* Content Sections (Home) */
@@ -169,9 +226,8 @@
     margin-bottom: 20px;
   }
 
-  /* Blurbs Formatting */
   .blurbs-container {
-    font-size: 0.95rem; /* Smaller font size as requested */
+    font-size: 0.95rem;
     margin-top: 30px;
     border-top: 1px solid #ddd;
     padding-top: 20px;
@@ -418,10 +474,10 @@
   .full-post-body p { margin-bottom: 20px; font-size: 1.2rem; }
 
   .large-letter::first-letter {
-  font-size: 3rem; /* Makes the letter 3 times larger than normal text */
-  font-weight: bold;
-  color: #6b2d24;
-}
+    font-size: 3rem; 
+    font-weight: bold;
+    color: #6b2d24;
+  }
 
   /* Footer */
   footer {
@@ -453,6 +509,9 @@
     .book-details { width: 100%; }
     .event-item { flex-direction: column; gap: 5px; text-align: center; }
     .hero-text h1 { font-size: 2.5rem; }
+    
+    .teal-announcement-box { margin-top: 25px; padding: 15px 20px; font-size: 1.2rem; }
+
     .blog-overlay { padding: 30px 20px; margin: 20px; }
     .blog-layout { flex-direction: column; }
     .blog-sidebar { width: auto; position: static; margin-bottom: 20px; }
@@ -477,9 +536,15 @@
 
 <div id="home-view">
   <header id="home-top" class="parallax">
-    <div class="hero-text">
-      <h1>Lisa Gray</h1>
-      <p>Author of Story Avenue: Growing Up on An Iowa Gravel Road</p>
+    <div class="hero-text" >
+      <h1 style="color: #6b1006;">Lisa Gray</h1>
+      
+       <p class="teal-announcement-box">Coming <span style= "color:#430902"> AUGUST 4th, 2026</span> from Ten 16 Press, <em>STORY AVENUE: Growing Up on An Iowa Gravel Road</em> is <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
+g">now available for pre-order!</a></p>
+        
+     
+     
+      
     </div>
   </header>
 
@@ -494,10 +559,11 @@
           <div class="book-summary">
             <p>Story Avenue is a memoir about the people who shaped a Northwest Iowa girl seeking to understand the place she calls home and the family whose hallmark is their open heart. The Iowa farm on Story Avenue is the backdrop for a young woman longing to see a world beyond cornfields and churches. As an adult Lisa watches as the country's identity politics rage, and suddenly she finds herself wanting to share what she already knows- the people of "flyover" country cannot be judged by their geography. A much closer look is required.</p>
             <p><em>Available for pre-order now from Ten 16 Press</em></p>
-            <img src="images/ten-16.jpeg" style="width: 15%; height: auto;">
+            <img src="images/ten-16.jpeg" style="width: 15%; height: auto;" alt="Ten 16 Press">
           </div>
 
-          <a href="#" class="btn">Pre-Order</a>
+          <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
+g" class="btn">Pre-Order</a>
 
           <div class="blurbs-container">
             <div class="blurb">
@@ -534,7 +600,8 @@
         <p>Realizing the only way to really change people's minds about anything was to simply listen to them, she completed training to run compassionate listening circles. Lisa spent time helping others-everyone from middle school students to inmates to retired teachers-learn how to open their ears and minds and close their mouths. All of this listening practice has fuelled Lisa's interest in how people tend to judge and categorize each other, something our current political climate has exacerbated.</p>
 
         <p>Always a fan of the underdog, Lisa now supports adult students in strengthening their reading and writing skills in community college. She recharges with the help of books, nature, and trying to get a good photo in a favorite spot, most often the side of a gravel road.</p>
-        <div style="clear: both;"></div> </div>
+        <div style="clear: both;"></div> 
+      </div>
     </section>
 
     <section id="events" class="content-section">
@@ -542,11 +609,12 @@
       <ul class="events-list">
         <li class="event-item">
           <span class="event-date">August 4, 2026</span>
-          <span class="event-details"><strong>Story Avenue Book Release!</strong> — <em>Pre-order links coming soon.</em></span>
+          <span class="event-details"><strong>Story Avenue Book Release!</strong> — <em></em></span>
         </li>
       </ul>
       <p style="text-align: center; margin-top: 30px; color: #7f8c8d;"><em>Launch party details and reading dates to be announced at the end of next week.</em></p>
     </section>
+
   </main>
 </div>
 
@@ -561,11 +629,11 @@
       <aside class="blog-sidebar">
         <h3>Filter by Year</h3>
         <ul class="year-list" id="sidebar-years">
-          </ul>
+        </ul>
       </aside>
 
       <div class="blog-main" id="blog-entries-container">
-        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -577,7 +645,7 @@
       <button onclick="goHomeAndScroll('home-top')">⌂ Back to Home</button>
     </div>
     <div id="full-post-container" class="full-post-body">
-      </div>
+    </div>
   </div>
 </div>
 
@@ -646,61 +714,34 @@
       image: "images/power-lines.jpg", 
       excerpt: "Today, my morning walk found me thinking of power lines. I see them every day on my drive to work. I grew up knowing they were...",
       content: `
-                <p class="large-letter">Today, my morning walk found me thinking of power lines.</p>
-
+        <p class="large-letter">Today, my morning walk found me thinking of power lines.</p>
         <p>I see them every day on my drive to work. I grew up knowing they were essential to keeping the lights on. Heavy snow storms could snap them pretty quickly and we’d be out for days before they could get repaired.</p>
-
         <p>Kelley died two years ago today. It was a weird day--pretty in the morning, the best sort of spring day-- and then tornado warnings started popping up midafternoon just as Angie and Dad made the trek home from Sioux Falls. By nightfall, Kelley had passed and his body was removed from our home. Soon after, a storm hit and snapped a power line in two. By grace, kindness, and tenacity a crew worked all night long to give us this one thing….power.</p>
-
         <p>So in this moment, it’s really hard to think about Mother’s Day as created by Hallmark. It lacks nuance.</p>
-
         <p>I think of how Josh uttered, “Kelley died” to our Mama and watched as her world shifted in a second. There is no card for that.</p>
-
         <p>I think of how Leslie’s mom died on her birthday and was buried on my mom’s birthday.</p>
-
         <p>I think of the years I tried to have kids and lost babies.</p>
-
         <p>I think of a dear friend who never really knew her birth mom.</p>
-
         <p>I think of all the mamas who will never know their kids by circumstance or choice.</p>
-
         <p>I think of how, most often, joy is the last thing I consider when it comes to Mother’s Day.</p>
-
         <p>I do not relate to the child being my “greatest joy”, which is not popular to say.</p>
-
         <p>Instead, I think of power.</p>
-
         <p>Instead, I think of the grueling and tenacious storms I have weathered to stay upright in the mothering. I, like many, have had to power through so very much.</p>
-
         <p>I think about how I love my kids and would exchange my life for theirs, and if there is only one thing I give them which is really what they gave me, it is my power- my energy to right wrongs for them and in the name of them so that one day, they will own their power and do the same.</p>
-
         <p>Power lines.</p>
-
         <p>They snap and break.</p>
-
         <p>And yet they can be restored.</p>
-
         <p>I have been restored by loving hard on my kids in their most difficult stages which makes their growth into young adults sometimes feel miraculous. I did what I did not think could be done.</p>
-
         <p>I have been restored by watching women reinvent their lives long after prime mothering years are over- seeking and finding joy through their ability to set themselves free and live a whole new life.</p>
-
         <p>I have been restored by loving on my own mama. I have found more joy in the last year with my mom than I ever had with her growing up. I guess it’s because all bets are off. Everything can and has happened.</p>
-
         <p>The only real surprise in life is how far down a person can go and then, rise again.</p>
-
         <p>I renew my power in the company of close friends and family with whom I can say the deepest and truest things.</p>
-
         <p>This power sets me free and there is so much joy in feeling free.</p>
-
         <p>Mothering is not about being perfect.</p>
-
         <p>Mothering isn’t even really about raising kids.</p>
-
         <p>It’s about breaking and rising again.</p>
-
         <p>It’s about knowing you can and will do it over and over again because the one way forward is through setting yourself free of the shame of the way something “should” be and just taking it in for what it is, owning it, saying it, and feeling in your bones the worth of your honesty.</p>
-
-        <p>May we offer ourselves our own mothering through our power, our freedom, our joy.</p></p>
+        <p>May we offer ourselves our own mothering through our power, our freedom, our joy.</p>
       `
     },
     {
@@ -711,29 +752,17 @@
       image: "images/marching-forward.jpg", 
       excerpt: "Finally got a chance to visit with my primary care doc. What I thought was one thing turned out to be another thing. I did not know you could be on antidepressants and still be depressed. They have worked for so long. It’s true perimenopause ",
       content: `
-                
-
         <p class="large-letter">Finally got a chance to visit with my primary care doc. What I thought was one thing turned out to be another thing. I did not know you could be on antidepressants and still be depressed. They have worked for so long. It’s true perimenopause has done a number on me, but well, I was surprised and so were those close to me.</p>
-
         <p>I bring this up because you can’t really know a person’s insides unless they tell you. I work well with my colleagues, I have a good rapport with students, I have good relationships with friends and family. I actually consider myself someone who has an arsenal of coping mechanisms- art, pets, exercise, a decent diet, and getting fresh air. So I thought I was doing all the things and what was left was just me feeling angry, negative, and tired no matter how much or how little I slept. I wasn't talking about it because it felt too hard to explain.</p>
-
         <p>We will see if there are any internal changes as time passes and I do more things, including a new medicine and some things I don’t wish to share.</p>
-
         <p>One thing that has brought me great joy is seeing my mom laugh with my sister. Angie is always fun and she always brings a smile to mom’s face and mine. Together, the three of us watched Iowa women’s basketball, Mom and me with our blankets covering our eyes because WE CAN’T STAND IT and Angie provided a play-by-play. We made a lasagne from a new recipe mom found and no one hip-checked anyone in the kitchen. Success!</p>
-
         <p>I am surrounded by kickass older women- my boss, my mother-in-law and all her friends, Mom, her friends, and my friend’s families. On hard days, I think of all they have endured and know I can too. It’s just life- the ups and downs.</p>
-
         <p>The book is moving along. The shape has shifted some, but it’s good. I can finally see what it will look like and I am excited. The truth is memoirs don’t get published easily, but for me it's about so much more. The process, my family, how we show up in the world during extreme stress, how we hold on, and how we let go. My message is bigger than growing up in Iowa and I am humbled by the skill it requires to put all of this into words. There will be published copies one way or another, but at the moment, the next step is revising it enough so I can attempt a query letter to some publishers.</p>
-
         <p>I have been missing the great cloud mornings- or documenting them anyway. This morning I stood outside to see blue sky and white, grey, and silver clouds being illuminated and instead of running for my phone, I held still. The birds were singing and I took a deep breath. Not everything needs a picture. Some things are just for me.</p>
-
         <p>We miss our doggie. She was a pain, but the life force she had was great. It’s so quiet in the house. We have some travel planned and we think we will wait a bit, but we like to share photos of this dog or that. I study their eyes, looking for some spark, some hidden message that says, “I am yours.” This may be asking way too much of a photo, but we are just looking at this point.</p>
-
         <p>It’s fun to see Mom with her buddy Zeke. He’s also a pain, but even things that are less than ideal need love and it’s a two-way street. They help each other- with routine and love and fending off that feeling of being alone.</p>
-
         <p>There was laughter at the table the other night playing a silly word game with the two grandmas and a young adult- they all give off such different vibes and vocabularies but that is exactly what made it so funny. I don’t know why we rush to separate people by age so often. We have so much to learn from people outside our generation.</p>
-
-        <p>It feels good to touch down. Though I have been writing, it hasn’t been this kind. I feared it would be too weird and sad and angry. Maybe the medicine is working after all. Time will tell. It's good to hold on to spring, the promise of new blooms, and a fresh start. </p></p>
+        <p>It feels good to touch down. Though I have been writing, it hasn’t been this kind. I feared it would be too weird and sad and angry. Maybe the medicine is working after all. Time will tell. It's good to hold on to spring, the promise of new blooms, and a fresh start. </p>
       `
     },
 
@@ -746,34 +775,20 @@
       image: "images/reflections.jpg", 
       excerpt: "I want to remember that people show me love all the time. In acts of service, in a sincere question about me, in an invitation, in presence. My favorites: Ben asking me, almost daily, “How was your day, mom?” as we sit together eating dinner...",
       content: `
-                
-      <p> 11 Things to Keep from 2023</p>
+        <p> 11 Things to Keep from 2023</p>
         <p class="large-letter">I want to remember...</p> 
-          
         <p>1. that people show me love all the time. In acts of service, in a sincere question about me, in an invitation, in presence. My favorites: Ben asking me, almost daily, “How was your day, mom?” as we sit together eating dinner; the smile on a student’s face when they discover what I’ve recommended works!; my dearest friends just holding space and knowing how special the space is; Bob holding my hand and saying, "I’m so glad you are home." Moments in Iowa:  Mom, with tears as we load up her last box and leave Story Avenue;  Mom with tears as we unpack each box;  Mom as she flits from room to room with joy, “I just love it!” she says of this new home; Mom, unwrapping dad’s picture and a clock Kelley gave her;  Mom carrying it all;  Angie and Leslie and I howling with laughter; Josh giving me the biggest warmest hug. None of this relates to being productive. It’s all about being aware.</p>
-
         <p>2. Jewelies, my writing group, is a place to let it all out and attempt to work through the struggle of being human. I really can’t say enough about how it feels to just have the space—knowing I can come pop in any time to work it out. It’s writing and so much more. I do not know how to function at the moment without a space like this.</p>
-
         <p>3. The distance I have finally acquired to look at my book objectively. It needs work. I can do the work. It’s ok.</p>
-
         <p>4.The ability to say the things no one will say. I’ve done it three times this year and while not much has happened as a result, tension has been released. I think this paves the way towards movement in a better direction. Knowing and then saying the hard things are so so so so important.</p>
-
         <p>5.Understanding growth can feel imperceptible. See number 4.</p>
-
         <p>6.My early mornings and naps when I can take them.</p>
-
         <p>7.Sunrises and sunsets and clouds and raindrops and me pulling over to snap a photo. I want to always stop.</p>
-
         <p>8.Laughter and being silly with people. I added more this year and it’s no surprise- I want even more. There are few people who bring it out in me, and  I want to see more of them.</p>
-
         <p>9.Boundaries need not be outwardly firm. My mantra of late has been “This is not about me” when I feel challenged or too agitated by another’s words or actions.</p>
-
         <p>10.Not getting annoyed at the amount of time people bring up weight and diets. I have made progress, but….see #9 Lisa. ;)</p>
-
         <p>11. A warm mug of steaming coffee each morning in the muted light before sunrise. I sit and think of nothing, a time where no questions are being asked and the only objective is being aware.</p>
-
         <p>To the holiday and the awareness you bring to it. In all the imperfections, may you find tiny moments of joy to hold onto.</p>
-
         <p>And to the new year and being willing to be open to all it may bring.</p>
       `
     },
@@ -785,35 +800,21 @@
       image: "images/destination-arrived.jpg", 
       excerpt: "The thing about this season is it can feel like we are all Flat Stanleys. If we just put ourselves in a place by creating the right scene-- put a bow here, add  a tree there, play the right music, we arrive! Welcome to Destination Holiday!",
       content: `
-                <p class="large-letter">The thing about this season is it can feel like we are all Flat Stanleys. If we just put ourselves in a place by creating the right scene-- put a bow here, add  a tree there, play the right music, we arrive! Welcome to Destination Holiday!</p>
-
+        <p class="large-letter">The thing about this season is it can feel like we are all Flat Stanleys. If we just put ourselves in a place by creating the right scene-- put a bow here, add  a tree there, play the right music, we arrive! Welcome to Destination Holiday!</p>
         <p>These things can be fun. They can help boost a mood. They can create a feeling of warmth and coziness.</p>
-
         <p>And yet, it’s never the entire story.</p>
-
         <p>There is so much pain in the world. We are anything and everything but flat. There is only so much a bow cannot fix.</p>
-
         <p>Grief is sneaky. The lights on the tree blink while my Ben tells me about a new book series he’s jazzed about and suddenly, a vision of worn paperback westerns sitting in stacks at your birthplace floats up and tears sit on the surface of my eyes. He stopped mid sentence. “Mom?”</p>
-
         <p>I take a deep breath and ask him to go on. I want this moment with him. I will find a space later to let this out.</p>
-
         <p>Grief needs to breathe. It will find a way for you to make space for it, especially if you choose not to. But there are moments when it catches me that feel inconvenient and surprising. Where did that come from? is a question I find myself asking a lot.</p>
-
         <p>Everyone is feeling so much right now because there is SO much happening. Maybe some of us (me) misplace what matters and shop and eat and make merry because I don’t want to feel the other stuff.  Or, more likely, it is both. It is fun AND painful AND a distraction AND spreading cheer can force me into my own cheer.</p>
-
         <p>I made enough holiday granola to feed a small army. I can make something while crying. I can stir and chop and check the timer and feel my sadness doing something I want to do for someone else and hope it gives them a bit of joy.</p>
-
         <p>I give it to workmates and friends and to Bob’s nurses and workmates and people who help him get through his day. This is the part that matters to me, saying thank you to those who help me get through the day. I often think of my students who are always so happy when we provide snacks (which is always). It is not lost on me how little it takes to lift a person.</p>
-
         <p>But this collective grief? I cannot feed the entire world.</p>
-
         <p>I think where I am is making space for the pain and letting others know they can  do the same.</p>
-
         <p>We are not Flat Stanleys. Our emotional well being is complex,  shades of not just gray but all colors. It’s hard to convey in one little holiday newsletter.</p>
-
         <p>I went simple this year after taking the year off last year. I have no family photos or newsy letter. Instead, I chose a few scenes I captured on one of many drives I have taken in Southeast Minnesota.  Each shows a little moment that brought me joy…enough to want to share it.</p>
-
-        <p>I think this is why we are here. In order to bear the more complex, painful, and unseen parts, we can share our joy. In doing so, it is my hope I can inch others closer to doing the same. Our unique pain and trauma may never be erased, but neither can the light and joy we see. In that way, I think it is what I can offer, a bit of light. May each of you find a way to offer yours as well.</p></p>
+        <p>I think this is why we are here. In order to bear the more complex, painful, and unseen parts, we can share our joy. In doing so, it is my hope I can inch others closer to doing the same. Our unique pain and trauma may never be erased, but neither can the light and joy we see. In that way, I think it is what I can offer, a bit of light. May each of you find a way to offer yours as well.</p>
       `
     }
   ];
@@ -822,8 +823,7 @@
 
   function renderSidebar() {
     const sidebar = document.getElementById('sidebar-years');
-    // Extract unique years from the post data
-    const years = ['All', ...new Set(blogPosts.map(post => post.year))].sort((a, b) => b - a); // sort descending
+    const years = ['All', ...new Set(blogPosts.map(post => post.year))].sort((a, b) => b - a); 
     
     sidebar.innerHTML = '';
     years.forEach(year => {
@@ -834,8 +834,8 @@
       
       btn.onclick = () => {
         currentYearFilter = year;
-        renderSidebar(); // Update active class
-        renderBlogFeed(); // Filter posts
+        renderSidebar(); 
+        renderBlogFeed(); 
       };
       
       li.appendChild(btn);
@@ -847,7 +847,6 @@
     const container = document.getElementById('blog-entries-container');
     container.innerHTML = '';
     
-    // Filter logic
     const filteredPosts = currentYearFilter === 'All' 
       ? blogPosts 
       : blogPosts.filter(post => post.year === currentYearFilter);
