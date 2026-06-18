@@ -39,6 +39,7 @@
     justify-content: center;
     align-items: center;
     min-height: 60px;
+    backdrop-filter: blur(8px);
   }
 
   body {
@@ -56,7 +57,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 18px 24px;
+    padding: 18px 32px;
     text-decoration: none;
     font-size: 1.2rem;
     transition: background-color 0.3s ease;
@@ -164,10 +165,10 @@
   .segment-2 { animation-delay: 2.1s; }
   .segment-3 { animation-delay: 2.9s; }
 
-  /* Teal Announcement Box */
+  /* Themed Announcement Box */
   .teal-announcement-box {
-    background-color: rgba(116, 202, 209, 0.85); /* Harmonious wintery teal */
-    color: rgb(237, 226, 226);
+    background-color: #6b2d24; /* Theme reddish-brown */
+    color: #efe2df;
     padding: 25px 40px;
     border-radius: 8px;
     display: inline-block;
@@ -526,7 +527,7 @@
     .book-cover { flex: 0 0 auto; width: 100%; max-width: 300px; height: 450px; }
     .book-details { width: 100%; }
     .event-item { flex-direction: column; gap: 5px; text-align: center; }
-    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text h1 { font-size: clamp(3.5rem, 12vw, 10rem); }
     
     .teal-announcement-box { margin-top: 25px; padding: 15px 20px; font-size: 1.2rem; }
 
@@ -556,13 +557,13 @@
   <header id="home-top" class="parallax">
     <div class="hero-text" >
       <h1 style="color: #6b1006;">Lisa Gray</h1>
-      <p class="hero-tagline"></p>
+      <!-- <p class="hero-tagline">writer, reader, world class lollygagger</p> -->
       
       
        <div class="teal-announcement-box" style="text-align: center;">
        
         <p>
-         Coming <span style= "color:#430902"> AUGUST 4th, 2026</span> from Ten 16 Press, <em>STORY AVENUE: Growing Up on An Iowa Gravel Road</em> is <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
+         Coming AUGUST 4th, 2026 from Ten 16 Press: <br> <em>STORY AVENUE: <br>Growing Up on An Iowa Gravel Road</em> <br>is <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
 g">now available for pre-order!</a>
 </p>
 
