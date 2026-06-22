@@ -329,6 +329,57 @@
   }
   .event-date { font-weight: bold; color: #6b2d24; min-width: 120px; }
 
+  /* Contact Form Styles */
+  .contact-container {
+    background-color: #fafafa;
+    padding: 40px;
+    border-left: 6px solid #6b2d24;
+    border-radius: 3px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    font-weight: bold;
+    color: #6b2d24;
+    margin-bottom: 8px;
+    font-family: 'Radley', serif;
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: 'Radley', serif;
+    font-size: 1rem;
+    background-color: white;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #6b2d24;
+    box-shadow: 0 0 5px rgba(107, 45, 36, 0.2);
+  }
+
+  .contact-form button {
+    cursor: pointer;
+    font-family: 'Radley', serif;
+  }
+
   /* Blog Sections Styles */
   .blog-background {
     background-image: url('images/haybales.jpg');
@@ -577,6 +628,9 @@
          Coming AUGUST 4th, 2026 from Ten 16 Press...<br><br> <em>STORY AVENUE: <br>Growing Up on An Iowa Gravel Road</em> <br><br>is <a href="https://www.orangehatpublishing.com/product/story-avenue/?fbclid=IwdGRjcASeZf9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe5ZcttIbiqKun3WnVex4RmZBpYFFCk4Alr_anan-_G8_22oIm7j0SvnSlxmE_aem_Pjg6tXot8MDwULF44a_CcA
 g">now available for pre-order!</a>
 </p>
+        <p style="margin-top: 25px; text-align: center; font-size: 1rem;">
+          [ <a href="#" onclick="goHomeAndScroll('contact'); return false;" style="color: #ffe3bf; font-weight: 700; text-decoration: underline; transition: color 0.3s ease;" onmouseover="this.style.color='#fff3e0'" onmouseout="this.style.color='#ffe3bf'">Contact To Book a Reading</a> ]
+        </p>
 
 </div>
         
@@ -651,6 +705,53 @@ g" class="btn">Pre-Order</a>
         </li>
       </ul>
       <p style="text-align: center; margin-top: 30px; color: #7f8c8d;"><em>Launch party details and reading dates to be announced at the end of next week.</em></p>
+    </section>
+
+    <section id="contact" class="content-section">
+      <h2>Contact To Book a Reading</h2>
+      <div class="contact-container">
+        <p style="font-size: 1.1rem; text-align: center; color: #555; margin-bottom: 30px;">
+          Interested in having Lisa visit your community, bookclub, or event for a reading? We'd love to hear from you!
+        </p>
+        
+        <form class="contact-form" action="#" method="POST" style="max-width: 600px; margin: 0 auto;">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="organization">Organization / Book Club (if applicable)</label>
+            <input type="text" id="organization" name="organization">
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location / City</label>
+            <input type="text" id="location" name="location">
+          </div>
+
+          <div class="form-group">
+            <label for="date">Preferred Date(s)</label>
+            <input type="text" id="date" name="date" placeholder="e.g., September 2026 or flexible">
+          </div>
+
+          <div class="form-group">
+            <label for="details">Event Details & Special Requests</label>
+            <textarea id="details" name="details" rows="5" placeholder="Tell us about your event, group size, and any special requests..."></textarea>
+          </div>
+
+          <button type="submit" class="btn" style="width: 100%; margin-top: 20px; padding: 12px 24px; font-size: 1.1rem;">Send Request</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 1rem;">
+          <em>We'll get back to you within one week to discuss details and availability.</em>
+        </p>
+      </div>
     </section>
 
   </main>
