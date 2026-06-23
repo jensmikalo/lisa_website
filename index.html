@@ -268,6 +268,28 @@
     background-color: #fbfbfb;
     border-left: 4px solid #8c3c31;
     border-radius: 3px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .blurb-avatar {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 92px;
+    border: 2px solid #d9c1bc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  .blurb-avatar.jenna { object-position: center 28%; }
+  .blurb-avatar.beth { object-position: center 24%; }
+  .blurb-avatar.allison { object-position: center 26%; }
+
+  .blurb-content {
+    flex: 1;
+    min-width: 0;
   }
 
   .blurb-text {
@@ -596,6 +618,8 @@
     .book-cover { flex: 0 0 auto; width: 100%; max-width: 300px; height: 450px; }
     .book-details { width: 100%; }
     .event-item { flex-direction: column; gap: 5px; text-align: center; }
+    .blurb { flex-direction: column; align-items: center; text-align: left; }
+    .blurb-avatar { width: 100px; height: 100px; }
     .hero-text h1 { font-size: clamp(3.5rem, 12vw, 10rem); }
     .hero-tagline { display: inline-block; }
     
@@ -667,21 +691,30 @@ g" class="btn">Pre-Order</a>
 
           <div class="blurbs-container">
             <div class="blurb">
-              <p class="blurb-text">"Luckily for readers, you can take the girl out of rural Iowa, but you can't take Iowa out of the girl. In clear prose and unsentimental, wry, and honest storytelling, Lisa Gray brings dimension and depth to an often underestimated and overlooked pocket of the country. Only by leaving does she come to appreciate the beauty of the land that shaped her, the tenacity of the community that raised her, and the beating heart of a family that grows stronger through loss. Gray's intimate portraits offer a master class in acceptance, belonging, and devotion. In a social landscape riven by polarity, Story Avenue will surprise, educate, and tenderize readers from both coasts and everywhere in between."</p>
-              <p class="blurb-author">— Jena Schwarts</p>
-              <p class="blurb-credential">Writing coach and author of Fierce Encouragement: 201 Writing Prompts for Staying Grounded in Fragile Times, Why I Was Late for Our Meeting</p>
+              <img src="images/jenna.png" alt="Jenna Schwarts" class="blurb-avatar jenna">
+              <div class="blurb-content">
+                <p class="blurb-text">"Luckily for readers, you can take the girl out of rural Iowa, but you can't take Iowa out of the girl. In clear prose and unsentimental, wry, and honest storytelling, Lisa Gray brings dimension and depth to an often underestimated and overlooked pocket of the country. Only by leaving does she come to appreciate the beauty of the land that shaped her, the tenacity of the community that raised her, and the beating heart of a family that grows stronger through loss. Gray's intimate portraits offer a master class in acceptance, belonging, and devotion. In a social landscape riven by polarity, Story Avenue will surprise, educate, and tenderize readers from both coasts and everywhere in between."</p>
+                <p class="blurb-author">— Jena Schwarts</p>
+                <p class="blurb-credential">Writing coach and author of Fierce Encouragement: 201 Writing Prompts for Staying Grounded in Fragile Times, Why I Was Late for Our Meeting</p>
+              </div>
             </div>
 
             <div class="blurb">
-              <p class="blurb-text">"I love this book and the spirit behind it. Story Avenue was born from a writer's desire to understand herself in relation to her roots. Sparked by a thoughtless remark that burrowed deep until Gray examined exactly what was misunderstood, this family story culminates in a year that truly was one for the books—literally and metaphorically. This is how life works: it knocks you down so that you learn who is truly there to pick you up, and just as the Gray family and their friends were there for each other, Lisa Gray is a writer who is here for us. Brava!"</p>
-              <p class="blurb-author">— Elizabeth Oness</p>
-              <p class="blurb-credential">Author of The Hopefuls, Leaving Milan, Articles of Faith, and Departures</p>
+              <img src="images/beth.png" alt="Elizabeth Oness" class="blurb-avatar beth">
+              <div class="blurb-content">
+                <p class="blurb-text">"I love this book and the spirit behind it. Story Avenue was born from a writer's desire to understand herself in relation to her roots. Sparked by a thoughtless remark that burrowed deep until Gray examined exactly what was misunderstood, this family story culminates in a year that truly was one for the books—literally and metaphorically. This is how life works: it knocks you down so that you learn who is truly there to pick you up, and just as the Gray family and their friends were there for each other, Lisa Gray is a writer who is here for us. Brava!"</p>
+                <p class="blurb-author">— Elizabeth Oness</p>
+                <p class="blurb-credential">Author of The Hopefuls, Leaving Milan, Articles of Faith, and Departures</p>
+              </div>
             </div>
 
             <div class="blurb">
-              <p class="blurb-text">"When we think of “flyover country” it's easy to see a faceless “them” voting against “us.” But in Lisa Gray's thoughtful, nuanced Story Avenue, we see the hard work and family love that builds a community like any other. In this well-told tale of generations of farmers and the desire to get off the farm without losing the family, Gray brings us into a deeper understanding of the shifts and rifts that made her—and made meaningful lives around her. We should all have parents so loving, siblings so funny, and a village so strong."</p>
-              <p class="blurb-author">— Allison K Williams</p>
-              <p class="blurb-credential">Author of Seven Drafts, writing coach and editor</p>
+              <img src="images/allison.png" alt="Allison K Williams" class="blurb-avatar allison">
+              <div class="blurb-content">
+                <p class="blurb-text">"When we think of “flyover country” it's easy to see a faceless “them” voting against “us.” But in Lisa Gray's thoughtful, nuanced Story Avenue, we see the hard work and family love that builds a community like any other. In this well-told tale of generations of farmers and the desire to get off the farm without losing the family, Gray brings us into a deeper understanding of the shifts and rifts that made her—and made meaningful lives around her. We should all have parents so loving, siblings so funny, and a village so strong."</p>
+                <p class="blurb-author">— Allison K Williams</p>
+                <p class="blurb-credential">Author of Seven Drafts, writing coach and editor</p>
+              </div>
             </div>
           </div>
         </div>
