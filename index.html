@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Radley:ital@0;1&family=Inspiration&display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
   /* Global Styles */
   body, html {
@@ -40,6 +41,8 @@
     align-items: center;
     min-height: 60px;
     backdrop-filter: blur(8px);
+    padding-right: 120px;
+    box-sizing: border-box;
   }
 
   body {
@@ -65,6 +68,36 @@
 
   nav li a:hover {
     background-color: #52211a;
+  }
+
+  .nav-social {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 1001;
+  }
+
+  .social-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: background-color 0.25s ease, transform 0.25s ease;
+    font-size: 0.9rem;
+  }
+
+  .social-btn:hover {
+    background-color: #52211a;
+    transform: translateY(-1px);
   }
 
   .hamburger-btn {
@@ -224,14 +257,16 @@
   }
 
   .book-container {
+    --book-cover-column: 250px;
+    --book-column-gap: 40px;
     display: flex;
-    gap: 40px;
+    gap: var(--book-column-gap);
     align-items: flex-start;
     margin-bottom: 40px;
   }
 
   .book-cover {
-    flex: 0 0 250px;
+    flex: 0 0 var(--book-cover-column);
     height: 380px;
     display: flex;
     align-items: center;
@@ -260,25 +295,25 @@
     margin-top: 30px;
     border-top: 1px solid #ddd;
     padding-top: 20px;
+    margin-left: calc(-1 * (var(--book-cover-column) + var(--book-column-gap)));
+    width: calc(100% + var(--book-cover-column) + var(--book-column-gap));
   }
 
   .blurb {
     margin-bottom: 25px;
-    padding: 15px 20px;
-    background-color: #fbfbfb;
-    border-left: 4px solid #8c3c31;
-    border-radius: 3px;
-    display: flex;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: var(--book-cover-column) 1fr;
+    gap: var(--book-column-gap);
     align-items: flex-start;
   }
 
   .blurb-avatar {
-    width: 92px;
-    height: 92px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
     object-fit: cover;
-    flex: 0 0 92px;
+    object-position: center center;
+    justify-self: center;
     border: 2px solid #d9c1bc;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
@@ -290,6 +325,10 @@
   .blurb-content {
     flex: 1;
     min-width: 0;
+    padding: 15px 20px;
+    background-color: #fbfbfb;
+    border-left: 4px solid #8c3c31;
+    border-radius: 3px;
   }
 
   .blurb-text {
@@ -602,6 +641,15 @@
   @media (max-width: 768px) {
     nav { justify-content: flex-end; }
     .hamburger-btn { display: block; }
+    .nav-social {
+      right: 96px;
+      gap: 6px;
+    }
+    .social-btn {
+      width: 28px;
+      height: 28px;
+      font-size: 0.82rem;
+    }
     nav ul {
       display: none;
       flex-direction: column;
@@ -618,8 +666,28 @@
     .book-cover { flex: 0 0 auto; width: 100%; max-width: 300px; height: 450px; }
     .book-details { width: 100%; }
     .event-item { flex-direction: column; gap: 5px; text-align: center; }
-    .blurb { flex-direction: column; align-items: center; text-align: left; }
+    .blurbs-container {
+      margin-left: 0;
+      width: auto;
+    }
+    .blurb {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 15px 20px;
+      background-color: #fbfbfb;
+      border-left: 4px solid #8c3c31;
+      border-radius: 3px;
+      text-align: left;
+      justify-items: center;
+    }
     .blurb-avatar { width: 100px; height: 100px; }
+    .blurb-content {
+      width: 100%;
+      padding: 0;
+      background-color: transparent;
+      border-left: none;
+      border-radius: 0;
+    }
     .hero-text h1 { font-size: clamp(3.5rem, 12vw, 10rem); }
     .hero-tagline { display: inline-block; }
     
@@ -645,6 +713,14 @@
     <li><a href="#" onclick="goHomeAndScroll('events'); return false;">Events</a></li>
     <li><a href="#" onclick="showBlogList(); return false;">Blog</a></li>
   </ul>
+  <div class="nav-social" aria-label="Social links">
+    <a class="social-btn" href="https://www.threads.com/@iagraygirlinmn" target="_blank" rel="noopener noreferrer" aria-label="Lisa on Threads" title="Threads">
+      <i class="fa-brands fa-threads" aria-hidden="true"></i>
+    </a>
+    <a class="social-btn" href="https://facebook.com/lisa.gray.165" target="_blank" rel="noopener noreferrer" aria-label="Lisa on Facebook" title="Facebook">
+      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    </a>
+  </div>
 </nav>
 
 <div id="home-view">
@@ -661,7 +737,7 @@
 g">now available for pre-order!</a>
 </p>
         <p style="margin-top: 25px; text-align: center; font-size: 1rem;">
-          [ <a href="#" onclick="goHomeAndScroll('contact'); return false;" style="color: #ffe3bf; font-weight: 700; text-decoration: underline; transition: color 0.3s ease;" onmouseover="this.style.color='#fff3e0'" onmouseout="this.style.color='#ffe3bf'">Contact To Book a Reading</a> ]
+          ▶ <a href="#" onclick="goHomeAndScroll('contact'); return false;" style="color: #ffe3bf; font-weight: 700; text-decoration: underline; transition: color 0.3s ease;" onmouseover="this.style.color='#fff3e0'" onmouseout="this.style.color='#ffe3bf'"><em>Contact To Book a Reading</em></a> ◀
         </p>
 
 </div>
@@ -681,8 +757,8 @@ g">now available for pre-order!</a>
           <h3>Story Avenue: Growing Up on An Iowa Gravel Road</h3>
           
           <div class="book-summary">
-            <p>Story Avenue is a memoir about the people who shaped a Northwest Iowa girl seeking to understand the place she calls home and the family whose hallmark is their open heart. The Iowa farm on Story Avenue is the backdrop for a young woman longing to see a world beyond cornfields and churches. As an adult Lisa watches as the country's identity politics rage, and suddenly she finds herself wanting to share what she already knows- the people of "flyover" country cannot be judged by their geography. A much closer look is required.</p>
-            <p><em>Available for pre-order now from Ten 16 Press</em></p>
+            <p>Story Avenue is a memoir about the people who shaped a Northwest Iowa girl seeking to understand the place she calls home and the family whose hallmark is their open heart. The Iowa farm on Story Avenue is the backdrop for a young woman longing to see a world beyond cornfields and churches. As an adult Lisa watches the country's identity politics rage, and suddenly she finds herself wanting to share what she already knows: the people of "flyover" country cannot be judged by their geography. A much closer look is required.</p>
+            <p><strong>$16.99</strong> — <em>Available for pre-order while supplies last.</em></p>
             <img src="images/ten-16.jpeg" style="width: 15%; height: auto;" alt="Ten 16 Press">
           </div>
 
@@ -726,11 +802,11 @@ g" class="btn">Pre-Order</a>
       <div class="bio-container">
         <img src="images/Lisa-3.jpg" alt="Lisa Gray" class="author-photo">
         
-        <p>Lisa Gray is a Midwest girl, through and through. She grew up in Northwest Iowa desperate to leave, and landed in exotic Minnesota to attend college in Mankato, MN. After nine years of teaching high school English and public speaking, she found herself writing as a way to stay sane while raising two kids and being married to a physician.</p>
+        <p>Lisa Gray is a Midwest girl through and through. She grew up in Northwest Iowa desperate to leave, and landed in exotic Minnesota to attend college in Mankato, MN. After nine years of teaching high school English and public speaking, she found herself writing as a way to stay sane while raising two kids and being married to a physician.</p>
 
         <p>Never short on opinions around current events, she began a stint as a local opinion writer in Winona, MN. When Minnesota attempted to limit marriage rights, she started writing on behalf of gay rights advocacy not only on her blog RestlessGrayGirl but for local and regional papers as well as The Huffington Post. An earthquake on the East coast prevented her online CNN OpEd about Sarah Palin from going live, but she at least has the contact.</p>
 
-        <p>Realizing the only way to really change people's minds about anything was to simply listen to them, she completed training to run compassionate listening circles. Lisa spent time helping others-everyone from middle school students to inmates to retired teachers-learn how to open their ears and minds and close their mouths. All of this listening practice has fuelled Lisa's interest in how people tend to judge and categorize each other, something our current political climate has exacerbated.</p>
+        <p>Realizing the only way to really change people's minds about anything was to simply listen to them, she completed training to run compassionate listening circles. Lisa spent time helping others—everyone from middle school students to inmates to retired teachers—learn how to open their ears and minds and close their mouths. All of this listening practice has fuelled Lisa's interest in how people tend to judge and categorize each other, something our current political climate has exacerbated.</p>
 
         <p>Always a fan of the underdog, Lisa now supports adult students in strengthening their reading and writing skills in community college. She recharges with the help of books, nature, and trying to get a good photo in a favorite spot, most often the side of a gravel road.</p>
         <div style="clear: both;"></div> 
@@ -742,11 +818,11 @@ g" class="btn">Pre-Order</a>
       <ul class="events-list">
         <li class="event-item">
           <span class="event-date">August 4, 2026</span>
-          <span class="event-details"><strong>Story Avenue Book Release!</strong> — <em></em></span>
+          <span class="event-details"><strong>Story Avenue Book Release!</strong><p style="text-align: center; margin-top: 30px; color: #7f8c8d;"><em>Launch party details and reading dates to be announced at the end of next week.</em></p>
+    </section></span>
         </li>
       </ul>
-      <p style="text-align: center; margin-top: 30px; color: #7f8c8d;"><em>Launch party details and reading dates to be announced at the end of next week.</em></p>
-    </section>
+     
 
     <section id="contact" class="content-section">
       <h2>Contact To Book a Reading</h2>
@@ -772,7 +848,7 @@ g" class="btn">Pre-Order</a>
           </div>
 
           <div class="form-group">
-            <label for="location">Location / City</label>
+            <label for="location">Location or City</label>
             <input type="text" id="location" name="location">
           </div>
 
@@ -832,6 +908,7 @@ g" class="btn">Pre-Order</a>
 
 <footer>
   <p>&copy; 2026 Lisa Gray. All rights reserved.</p>
+  <p style="font-size: 10px;"> 💻  Web development and visual design by <a href="https://jensenoness.com" target="_blank" style="color: #ffe3bf" rel="noopener noreferrer">Jensen Oness</a>, <br> a one-man branding, web development, <br> marketing, and design consultancy. <br>Have a project? Get in touch!</p>
 </footer>
 
 <script>
